@@ -1,13 +1,13 @@
 bookdown::gitbook:
   css: [css/style.css, css/taxonomies.css]
   split_bib: no
-  split_by: null # chapter, section,
+  split_by: chapter # chapter, section, null
   config:
     toc:
       collapse: section
       scroll_highlight: yes
       before: |
-        <li><a href="./">Daily writing</a></li>
+        <li><a href="./">Bookdown Template</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     edit: null

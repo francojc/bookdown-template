@@ -10,4 +10,4 @@ Hello world. I'm a note. If the note is longer it will expand.
 
 ```
 
-Here is a `r enterGlossary("Definition", "This is a test definition", "literature")`. I hope it works!
+Here is a `r enterGlossary("Definition", "This is a test definition", "literature")`.
