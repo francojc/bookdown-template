@@ -1,0 +1,61 @@
+
+/* default */
+
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
+
+/* headers */
+
+.header-section-number {
+  padding-right: .2em;
+  font-weight: 500;
+}
+.level1 .header-section-number {
+  display: inline-block;
+  border-bottom: 3px solid;
+}
+.level1 h1 {
+  border-bottom: 1px solid;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+h1.title {
+  font-weight: 700;
+}
+.book .book-body .page-wrapper .page-inner section.normal strong {
+  font-weight: 500;
+}
+
+
+/* blocks */
+
+.note, .tip, .warning, .key {
+  padding: 1em 1em 1em 5em;
+  margin-bottom: 10px;
+  background: rgb(248,248,248) 5px center/3em no-repeat;
+}
+.note {
+  background-image: url("../images/blocks/note.png");
+}
+.tip {
+  background-image: url("../images/blocks/tip.png");
+}
+.warning {
+  background-image: url("../images/blocks/warning.png");
+}
+.key {
+  background-image: url("../images/blocks/key.png");
+}

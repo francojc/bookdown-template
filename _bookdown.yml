@@ -1,0 +1,7 @@
+book_filename: "book"
+new_session: yes # clean workspace before each Rmd file
+before_chapter_script: ["R/createGlossary.R", "R/createTaxonomy.R"] # load functions
+language:
+  ui:
+    chapter_name: "Chapter "
+delete_merged_file: true

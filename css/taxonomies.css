@@ -1,0 +1,15 @@
+.projects {
+  padding: 0 1em 0 1em;
+  color: red;
+  border: 2px solid red;
+  border-radius: 5px;
+  background: rgb(248,248,248);
+}
+
+.tags {
+  padding: 0 1em 0 1em;
+  color: blue;
+  border: 2px solid blue;
+  border-radius: 5px;
+  background: rgb(248,248,248);
+}

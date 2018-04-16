@@ -1,0 +1,5 @@
+# Glossary {-}
+
+```{r print-glossary, results='asis', echo=FALSE}
+returnGlossary()
+```
