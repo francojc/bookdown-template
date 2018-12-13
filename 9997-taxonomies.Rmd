@@ -1,8 +1,0 @@
-# Taxonomies {-}
-
-## Tags
-
-```{r print-tags, results='asis', echo=FALSE}
-returnTaxonomy(type = "tags")
-```
-

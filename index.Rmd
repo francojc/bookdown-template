@@ -9,20 +9,22 @@ bibliography: [latex/book.bib, latex/packages.bib]
 biblio-style: apalike
 link-citations: yes
 csl: /Users/francojc/Documents/Styles/apa-no-doi-no-issue.csl
-github-repo: francojc/
+github-repo: francojc/bookdown-template
 cover-image: "images/cover.png"
 description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
 ---
 
 # Preface {-}
 
+(Generic cover image)
+
 ```{r cover, echo=FALSE, out.width='50%'}
 include_graphics("images/cover.png")
 ```
 
 ```{r meta-setup, echo=FALSE}
-initGlossary() # main
-initTaxonomy(type = "tags")
+# use_glossary() # set up glossary
+# initTaxonomy() # tags
 ```
 
 ## Overview {-}
@@ -52,3 +54,73 @@ knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown', 'tidyverse'
 ), 'latex/packages.bib')
 ```
+
+<!-- INTRODUCTION -->
+
+# Introduction {#intro}
+
+```{block, type="tip"}
+Here is a tip!
+```
+
+> Working on glossary and taxonomy via `indexr`
+
+You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(chapter2).
+
+Figures and tables with captions will be placed in `figure` and `table` environments, respectively. *Note: to maintain figures in their position in latex use the `fig.pos = 'H'` parameter and value.*
+
+```{r nice-fig, fig.cap='Here is a nice figure!'}
+ggplot(pressure, aes(x = temperature, y = pressure, group = 1)) + 
+  geom_line() +
+  geom_point(size = 3)
+```
+
+Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab). *Note: to have tables span across multiple pages, if necessary, in PDF, use the `longtable = TRUE` argument for `kable()`. You will also need to have the `\usepackage{longtable}` in the latex preamble.*
+
+```{r nice-tab, tidy=FALSE}
+knitr::kable(
+  head(iris, 20), caption = 'Here is a nice table!',
+  booktabs = TRUE
+)
+```
+
+Here's the spanning version. 
+
+```{r nice-span-tab}
+knitr::kable(head(iris, 20), 
+             caption = 'Here is a nice table!',
+             booktabs = TRUE, 
+             longtable = TRUE)
+```
+
+You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015].
+
+<!-- SECOND CHAPTER -->
+
+# Second chapter {#chapter2}
+
+Here is a review of existing methods.
+
+```{block, type="note"}
+Hello world. I'm a note. If the note is longer it will expand. 
+
+- Hello
+- World
+
+```
+
+
+**NOTE:** I've included the chapters in a single .Rmd document. This is so that this template can be forked and only the minimal components will be included. A typical bookdown project will have numerous .Rmd files corresponding to book parts and/or chapters. I've left the taxonomies, glossary, and references files as they are part of the scaffolding for this template. 
+
+# Third chapter {#chapter3}
+
+Some _significant_ applications are demonstrated in this chapter.
+
+## Example one {#ch3-ex-one}
+
+Here's some text ...
+
+## Example two {#ch3-ex-two}
+
+Here's some text ...
+

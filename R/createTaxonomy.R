@@ -3,14 +3,19 @@
 # Author: Jerid Francom
 # Date: 2018-03-01
 
-initTaxonomy <- function(type) {
+# WORKING ON EXPORTING THESE FUNCTION TO `INDEXR`
+
+initTaxonomy <- function(type = "Tags") {
   # Function to initialize a blank taxonomy
-  init <- tibble::tribble(~name, ~description, ~reference) # create structure
+  dir.create(path = "./taxonomies/", showWarnings = FALSE) # create directory
   taxonomy_path <- paste0("taxonomies/", type, ".csv") # create path
+  init <- tibble::tribble(~name, ~description, ~reference) # create structure
   readr::write_csv(init, taxonomy_path) # initialize blank taxonomy
+
+  if(!file.exists("9997-taxonomies.Rmd")) cat(file = "9997-taxonomies.Rmd", paste0('# Taxonomy {-} \n\n## ', type, '\n\n```{r, results=\'asis\', echo=FALSE}\nreturnTaxonomy(type = "', type, '")\n```\n\n')) # Create Rmd file
 }
 
-enterTaxonomy <- function(name, reference, type, description = "") {
+enterTaxonomy <- function(name, reference, type = "Tags", description = "") {
   # Function to add an entry to an existing taxonomy
   entry <- tibble::tibble(tools::toTitleCase(name), description, reference) # add data
   taxonomy_path <- paste0("taxonomies/", type, ".csv") # create path
@@ -18,7 +23,7 @@ enterTaxonomy <- function(name, reference, type, description = "") {
   paste0('<span class="', type, '">', tools::toTitleCase(name), '</span>') # return `name` in bubble (markdown)
 }
 
-returnTaxonomy <- function(type) {
+returnTaxonomy <- function(type = "Tags") {
   # Function to read, sort, format, and return a set of taxonomy entries
   library(tidyverse, quietly = TRUE)
   # Read and arrange taxonomy entries

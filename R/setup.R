@@ -5,9 +5,14 @@
 
 # Libraries
 
-library(knitr) # for table output
-library(tidyverse) # for general workflow tools
-library(EBImage) # for displaying images as figures
+# Load `pacman`. If not installed, install then load.
+if (!require("pacman", character.only = TRUE)) {
+  install.packages("pacman")
+  library("pacman", character.only = TRUE)
+}
+
+pacman::p_load(tidyverse, knitr, EBImage)
+# library(indexr) # needs some work, ...
 
 # Options
 theme_set(theme_minimal()) # set global ggplot theme
@@ -18,4 +23,3 @@ opts_chunk$set(fig.align = 'center', # center all figures
                warning = FALSE, # no warnings
                message = FALSE, # no messages
                error = FALSE) # no errors
-

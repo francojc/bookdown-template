@@ -3,11 +3,16 @@
 # Author: Jerid Francom
 # Date: 2018-02-20
 
+# WORKING ON EXPORTING THESE FUNCTION TO `INDEXR`
+
 initGlossary <- function(glossary = "main") {
   # Function to initialize a blank glossary
-  init <- tibble::tribble(~term, ~definition, ~reference) # create structure
+  dir.create(path = "./glossaries/", showWarnings = FALSE) # create directory
   glossary_path <- paste0("glossaries/", glossary, ".csv") # create path
+  init <- tibble::tribble(~term, ~definition, ~reference) # create structure
   readr::write_csv(init, glossary_path) # initialize blank glossary
+
+  if(!file.exists("980-glossaries.Rmd")) cat(file = "980-glossaries.Rmd", paste0('# Glossary {-} \n\n```{r, results=\'asis\', echo=FALSE}\nreturnGlossary(glossary = "', glossary, '")\n```\n\n')) # Create Rmd file
 }
 
 enterGlossary <- function(term, definition, reference, glossary = "main") {

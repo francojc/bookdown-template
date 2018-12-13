@@ -1,7 +1,0 @@
-# Methods {#methods}
-
-We describe our methods in this chapter. 
-
-```plain
-ls -al 
-```
